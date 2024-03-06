@@ -25,7 +25,7 @@ Este proyecto proporciona una interfaz para consultar si un vehículo puede circ
 ## Capturas de Pantalla
 
 Formulario de Consulta
-![Captura de Pantalla 2](screenshots/screenshot2.png)
+![aaa](https://github.com/asdrubalzp/advlatam-can-circulate-client/assets/49705410/0d1fd369-a376-4096-a4fc-05dd5077d990)
 _Formulario de Consulta_
 
 ## Requisitos
