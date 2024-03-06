@@ -1,0 +1,69 @@
+
+<div
+  *ngIf="!notFoundVehicle; else notFound"
+  class="bg-white shadow-md rounded p-8 mb-4"
+>
+  <div
+    *ngIf="vehicle.canCirculate; else cannotCirculate"
+    class="bg-green-200 shadow-md rounded p-8 mb-4"
+  >
+    <p class="text-green-800 font-semibold mb-4">¡Sí puede circular!</p>
+  </div>
+  <h3 class="text-2xl font-bold mb-4">Detalles del Vehículo</h3>
+  <div class="grid grid-cols-2 gap-4">
+    <div>
+      <p class="font-semibold">Placa:</p>
+      <p>{{ vehicle.plate }}</p>
+    </div>
+    <div>
+      <p class="font-semibold">Motor:</p>
+      <p>{{ vehicle.engine }}</p>
+    </div>
+    <div>
+      <p class="font-semibold">Chasis:</p>
+      <p>{{ vehicle.chassis }}</p>
+    </div>
+    <div>
+      <p class="font-semibold">Año del Vehículo:</p>
+      <p>{{ vehicle.yearVehicle }}</p>
+    </div>
+    <div>
+      <p class="font-semibold">Marca:</p>
+      <p>{{ vehicle.brand }}</p>
+    </div>
+    <div>
+      <p class="font-semibold">Modelo:</p>
+      <p>{{ vehicle.model }}</p>
+    </div>
+    <div>
+      <p class="font-semibold">Tipo de Vehículo:</p>
+      <p>{{ vehicle.typeVehicle }}</p>
+    </div>
+    <div>
+      <p class="font-semibold">Propietario:</p>
+      <p>{{ vehicle.ownerId }}</p>
+    </div>
+    <div>
+      <p class="font-semibold">Puede Circular:</p>
+      <p class="{{ vehicle.canCirculate ? 'text-green-800' : 'text-red-800' }}">
+        {{ vehicle.canCirculate ? "Sí" : "No" }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<ng-template #notFound>
+  <div class="bg-red-200 shadow-md rounded p-8 mb-4">
+    <p class="text-red-800 font-semibold">
+      ¡Vehículo no encontrado en la base de datos!
+    </p>
+  </div>
+</ng-template>
+
+<ng-template #cannotCirculate>
+  <div class="bg-red-200 shadow-md rounded p-8 mb-4">
+    <p class="text-red-800 font-semibold">
+      ¡No puede circular por restricción vehicular!
+    </p>
+  </div>
+</ng-template>

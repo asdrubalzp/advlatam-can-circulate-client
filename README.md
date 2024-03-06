@@ -1,27 +1,50 @@
-# FrontendCanCirculate
+# Consulta de Pico y Placa
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+Este proyecto proporciona una interfaz para consultar si un vehículo puede circular en una fecha y hora determinada según las restricciones de Pico y Placa.
 
-## Development server
+## Versiones
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Frontend: Angular v15.2.0
+- Backend: Spring Boot v3.2.3
 
-## Code scaffolding
+## Funcionalidades
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Consulta por número de placa y comprobación de si un vehículo puede circular en una fecha o día determinado. siguiendo las siguientes restricciones
+    - Lunes: placas terminadas en 1 y 2
+    - Martes: placas terminadas en 3 y 4
+    - Miércoles: placas terminadas en 5 y 6
+    - Jueves: placas terminadas en 7 y 8
+    - Viernes: placas terminadas en 9 y 0
+    - Sábado y Domingo: Todos los vehículos pueden circular
+    
+- El horario de restricción es de 6:00 a 9:30 y de 16:00 a 21:00
+- El formulario de consulta permite ingresar la placa y la fecha actual con la hora.
+- Validación para asegurar que la fecha ingresada no sea anterior a la fecha y hora actual.
+- Mostrar el resultado con la información de placa del vehículo y un texto que indique si es libre de circular en la fecha y hora ingresada.
 
-## Build
+## Capturas de Pantalla
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Formulario de Consulta
+![Captura de Pantalla 2](screenshots/screenshot2.png)
+_Formulario de Consulta_
 
-## Running unit tests
+## Requisitos
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Node.js y Angular CLI para el frontend.
+- Java y Spring Boot para el backend.
+- Git para clonar el repositorio.
 
-## Running end-to-end tests
+## Cómo Desplegar el Proyecto
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Ejecuta `ng install` para instalar las dependencias del proyecto.
 
-## Further help
+Ejecuta `ng serve` para iniciar un servidor de desarrollo. Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Construcción
+
+Ejecuta `ng build` para construir el proyecto. Los artefactos de construcción se almacenarán en el directorio `dist/`.
+
+
+## Ayuda Adicional
+
+Para obtener más ayuda sobre Angular CLI, utiliza `ng help` o visita la página [Angular CLI Overview and Command Reference](https://angular.io/cli).

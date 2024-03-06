@@ -1,0 +1,17 @@
+<div class="flex justify-center items-start h-screen">
+  <div class="max-w-sm">
+  
+    <app-can-circulate-form
+      (showResults)="setShowResults($event)"
+      (vehicleData)="setVehicle($event)"
+      (notFoundVehicle)="setNotFoundVehicle($event)"
+    ></app-can-circulate-form>
+
+    <div *ngIf="showResults">
+      <app-can-circulate-result
+        [vehicle]="vehicle"
+        [notFoundVehicle]="notFoundVehicle"
+      ></app-can-circulate-result>
+    </div>
+  </div>
+</div>

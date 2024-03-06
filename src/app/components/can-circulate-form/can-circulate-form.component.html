@@ -1,0 +1,58 @@
+<div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mt-10">
+  <h1 class="text-3xl font-bold mb-8 mt-4 text-center">
+    Validación pico y placa 2024
+  </h1>
+  <div class="mb-4 field">
+    <label class="block w-full text-gray-700 text-sm font-bold mb-2" for="plate"
+      >Placa</label
+    >
+    <p-inputMask
+      [(ngModel)]="canCirculate.plate"
+      mask="aaa-9999"
+      [unmask]="true"
+      placeholder="AAA-9999"
+      id="plate"
+      name="plate"
+      styleClass="w-full rounded-lg"
+      [required]="true"
+    ></p-inputMask>
+
+    <small class="p-error w-full" *ngIf="!isAValidPlate()">
+      La placa debe tener 7 caracteres
+    </small>
+  </div>
+  <div class="mb-6 field">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="dateTime"
+      >Fecha de consulta</label
+    >
+
+    <p-calendar
+      [(ngModel)]="canCirculate.circulationDateTime"
+      [minDate]="minDate"
+      styleClass="w-full bg-blue-500 rounded-lg"
+      placeholder="Fecha y hora de consulta"
+      [showTime]="true"
+      id="dateTime"
+      name="dateTime"
+      [showIcon]="true"
+    ></p-calendar>
+    <small class="p-error" *ngIf="!isAValidDate()">
+      La fecha no puede antes de la fecha y hora actual.
+    </small>
+  </div>
+  <div class="flex items-center justify-center">
+    <button
+      pButton
+      pRipple
+      label="¿Puedo circular?"
+      class="p-button-success w-full"
+      [disabled]="
+        !isAValidPlate() ||
+        canCirculate.plate == null ||
+        !isAValidDate() ||
+        canCirculate.circulationDateTime == null
+      "
+      (click)="validatePlate(canCirculate)"
+    ></button>
+  </div>
+</div>
